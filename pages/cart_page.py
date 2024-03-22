@@ -1,6 +1,5 @@
 import time
 
-from selenium.common import TimeoutException, ElementClickInterceptedException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -50,6 +49,6 @@ class Cart_page(Base):
             cart_good.click()
             self.get_delete_btn().click()
             time.sleep(1)
-            # WebDriverWait(self.driver, 30).until(EC.invisibility_of_element((By.XPATH, "//*[@id='js_app-cart']/div/div[2]/div[4]/div[2]/div[2]/a")))
+            # WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, "//h1[@class='rb-box-title rb-box-title_m-1']")))
         self.driver.back()
 

@@ -108,11 +108,11 @@ class Main_page(Base):
     def click_kind_of_flowers(self):
         self.get_kind_of_flowers().click()
 
-    # Выбираем обязательное содержание тюльпанов в фильтре "Цветы"
+    # Выбираем содержание тюльпанов в фильтре "Цветы"
     def click_tulips_checkbox(self):
         self.get_tulips_checkbox().click()
 
-    # Выбираем обязательное содержание лилий в фильтре "Цветы"
+    # Выбираем содержание лилий в фильтре "Цветы"
     def click_lilies_checkbox(self):
         self.get_lilies_checkbox().click()
 
@@ -171,19 +171,16 @@ class Main_page(Base):
         self.click_buket_style()
         self.click_style_gentle_checkbox()
         self.click_style_author_checkbox()
-        print('DO BUKET TYPA')
         self.click_buket_type()
-        print('POSLE BUKET TYPA')
         self.click_bucket_type_checkbox()
         self.driver.refresh()
         chosen_buket = self.get_chosen_buket_name()
         self.click_button_buy()
         self.click_button_cart()
-        self.get_screenshot()
         product_in_cart = self.cart_page(self.driver).get_buket_in_cart()
         self.assert_cart_product(product_in_cart, chosen_buket )
+        self.get_screenshot()
         self.cart_page(self.driver).click_order_button()
-
     # Итоговая функция по выбору букета согласно фильтрам и отправка букета в корзину
     def select_product(self):
         # закрываем окно с предупреждением о сохранении Cookies
